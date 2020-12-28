@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyToolBoxForAudioProcessing"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="250" Width="400">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="18*"/>
+        </Grid.RowDefinitions>
+        <TextBox Grid.Row="0" Name="InputText" FontFamily="Consolas" FontSize="72" HorizontalAlignment="Stretch" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" TextChanged="InputText_TextChanged">0</TextBox>
+        <ListView Grid.Row="1" Grid.Column="0" x:Name="ListView1" Grid.RowSpan="2" HorizontalContentAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="18*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding Name}" FontSize="24" />
+                        <TextBlock Grid.Column="1" Text="{Binding Value}" FontSize="24" HorizontalAlignment="Right" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>
