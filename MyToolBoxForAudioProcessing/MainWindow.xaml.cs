@@ -32,20 +32,28 @@ namespace MyToolBoxForAudioProcessing
             listContext.Add(new ListViewDataContext() { Name = "IEEE754", Value = "0" });
             InitializeComponent();
             ListView1.ItemsSource = listContext;
-            ListView1.SelectedIndex = 0;
             ListView1.SelectionChanged += (s, e) =>
             {
+                foreach (var item in listContext)
+                {
+                    item.IndicatorVisibility = Visibility.Hidden;
+                }
                 if(ListView1.SelectedIndex == 0)
                 {
                     converter = ConvertFromReal;
+                    listContext[0].IndicatorVisibility = Visibility.Visible;
                 }else if(ListView1.SelectedIndex == 1)
                 {
                     converter = ConvertFromDB;
-                }else if(ListView1.SelectedIndex == 2)
+                    listContext[1].IndicatorVisibility = Visibility.Visible;
+                }
+                else if(ListView1.SelectedIndex == 2)
                 {
                     converter = ConvertFromIeee754;
+                    listContext[2].IndicatorVisibility = Visibility.Visible;
                 }
             };
+            ListView1.SelectedIndex = 0;
         }
 
         private void InputText_TextChanged(object sender, TextChangedEventArgs e)

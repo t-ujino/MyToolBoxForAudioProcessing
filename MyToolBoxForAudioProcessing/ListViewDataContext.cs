@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Windows;
 
 namespace MyToolBoxForAudioProcessing
 {
@@ -10,6 +11,18 @@ namespace MyToolBoxForAudioProcessing
     {
         private string name;
         private string _value;
+
+        private Visibility indicatorVisibility = Visibility.Hidden;
+
+        public Visibility IndicatorVisibility
+        {
+            get { return indicatorVisibility; }
+            set {
+                if (value == indicatorVisibility) return;
+                indicatorVisibility = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public string Name
         {

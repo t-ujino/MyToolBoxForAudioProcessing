@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyToolBoxForAudioProcessing"
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="400">
+        Title="MainWindow" Height="300" Width="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="10*"/>
@@ -17,11 +17,13 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="10*"/>
                             <ColumnDefinition Width="18*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="{Binding Name}" FontSize="24" />
-                        <TextBlock Grid.Column="1" Text="{Binding Value}" FontSize="24" HorizontalAlignment="Right" />
+                        <Image Grid.Column="0" Name="Indicator" Source="/indicator.png" Visibility="{Binding IndicatorVisibility}"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Name}" FontSize="24" VerticalAlignment="Center" />
+                        <TextBlock Grid.Column="2" Text="{Binding Value}" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center" />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
